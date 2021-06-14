@@ -1,0 +1,24 @@
+{
+  "name": "assignment-2-student-store",
+  "version": "1.0.0",
+  "description": "Submitted by: **NAME**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awang2330/Assignment-2-Student-Store.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awang2330/Assignment-2-Student-Store/issues"
+  },
+  "homepage": "https://github.com/awang2330/Assignment-2-Student-Store#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7"
+  }
+}
