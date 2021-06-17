@@ -12,7 +12,7 @@ app.get("/", async(req, res, next) => {
   res.status(200).json()
 })
 
-const port = 3000
+const port = 3001
 
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}`)

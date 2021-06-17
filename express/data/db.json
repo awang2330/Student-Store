@@ -1,7 +1,4 @@
-const express = require("express")
-const router = express.Router()
-
-const storeInventory = {
+{
   "products": [
     {
       "id": 1,
@@ -23,14 +20,3 @@ const storeInventory = {
     }
   ]
 }
-
-router.get("/", async(req, res, next) => {
-  try {
-    console.log(storeInventory)
-    res.status(200).json(storeInventory)
-  } catch(err) {
-    next(err)
-  }
-})
-
-module.exports = router
