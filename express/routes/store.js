@@ -1,22 +1,35 @@
 const express = require("express")
 const { returnPurchaseReceipt } = require("../models/store")
 const router = express.Router()
-const store = require("../models/store")
+const Store = require("../models/store")
 
+/** Get the store inventory */
 router.get("/", async(req, res, next) => {
   try {
-    const storeInventory = await store.getStoreInventory()
-    res.status(200).json(storeInventory)
+    const storeInventory = await Store.getStoreInventory()
+    res.status(200).json({products: storeInventory})
   } catch(err) {
     next(err)
   }
 })
 
+/** Create new store item */
+router.post("/newItem", async (req, res, next) => {
+  try {
+    const product = req.body.product
+    const newProduct = await Store.recordProduct(product)
+    res.status(201).json(newProduct)
+  } catch (err) {
+    next(err)
+  }
+})
+
+/** Post the user's purchase */
 router.post("/", async(req, res, next) => {
   try {
     const userInfo = req.body.userInfo
     const cart = req.body.cart
-    const puchaseReceipt = await store.returnPurchaseReceipt(userInfo, cart)
+    const puchaseReceipt = await Store.returnPurchaseReceipt(userInfo, cart)
     res.status(200).json(purchaseReceipt)
   } catch(err) {
     next(err)
