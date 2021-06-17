@@ -1,0 +1,30 @@
+.Home {
+  background: #bbc8ba;
+}
+.Home > div {
+  padding: 80px;
+}
+
+.shop-intro {
+  width: 80%;
+  height: 350px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #bbc8ba;
+  /* 
+  https://colorpalettes.net/color-palette-4289/ 
+  https://colorpalettes.net/color-palette-4291/
+  */
+}
+
+#about, #contact {
+  background: #fddca5;
+}
+.about {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

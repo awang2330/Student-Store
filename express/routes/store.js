@@ -13,6 +13,21 @@ router.get("/", async(req, res, next) => {
   }
 })
 
+// fetch single product
+router.get("/:productId", async (req, res, next) => {
+  try {
+    const productId = req.params.productId
+    const product = await Store.fetchProductById(productId)
+    if (!product) {
+      throw new NotFoundError("Product not found")
+    }
+    res.status(200).json({ product })
+  } catch (err) {
+    next(err)
+  }
+})
+
+
 /** Create new store item */
 router.post("/newItem", async (req, res, next) => {
   try {

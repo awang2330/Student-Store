@@ -1,0 +1,32 @@
+.StoreProducts {
+  display: flex;
+  justify-content: space-around;
+}
+
+.StoreProducts a {
+  text-decoration: none;
+}
+.product-info {
+  width: 300px;
+  height: auto;
+}
+.product-image {
+  overflow: hidden;
+}
+.product-image img {
+  width: 100%;
+}
+.product-category {
+  font-size: 18px;
+  text-transform: uppercase;
+  background-color: #546747;
+  float: right;
+  padding: 8px;
+  border-radius: 20px;
+}
+.product-name {
+  font-size: 20px;
+}
+.product-price {
+
+}
