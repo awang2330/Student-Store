@@ -11,9 +11,11 @@ export default function StoreProducts( {products} ) {
             <div className="product-image">
               <img src={item.image} alt={item.name}/>
             </div>
-            <div className="product-category">{item.category}</div>
-            <div className="product-name">{item.name}</div>
-            <div className="product-price">{item.price}</div>
+            <div className="product-details">
+              <div className="product-category">{item.category}</div>
+              <div className="product-name">{item.name}</div>
+              <div className="product-price">${item.price}</div>
+            </div>
           </div>
         </Link>
       ))}

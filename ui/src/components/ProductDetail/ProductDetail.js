@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 
+import './ProductDetail.css'
+
 export default function ProductDetail() {
   const { productId } = useParams()
   const [product, setProduct] = useState([])
@@ -24,15 +26,20 @@ export default function ProductDetail() {
   }, [productId])
 
   return (  
-    <div className="product-info">
-      <div className="product-image">
-        <img src={product.image} alt={product.name}/>
+    <div className="ProductDetail">
+       <div className="productdetail-info">
+        <div className="productdetail-image">
+          <img src={product.image} alt={product.name}/>
+        </div>
+        <div className="product-details">
+          <div className="productdetail-category">{product.category}</div>
+          <div className="productdetail-name">{product.name}</div>
+          <div className="productdetail-price">${product.price}</div>
+          <div className="productdetail-desc">{product.description}</div>
+        </div>
       </div>
-      <div className="product-category">{product.category}</div>
-      <div className="product-name">{product.name}</div>
-      <div className="product-price">{product.price}</div>
-      <div className="product-desc">{product.description}</div>
     </div>
+   
   )
 }
  
