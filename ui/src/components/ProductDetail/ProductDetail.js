@@ -8,23 +8,13 @@ export default function ProductDetail() {
   const [error, setError] = useState()
 
   useEffect(() => {
-    console.log("test")
     const fetchProductById = async () => {
-      console.log("test")
       try {
         const res = await axios.get(`http://localhost:3001/store/${productId}`)
-        console.log(res)
-        if (res?.data?.product) {
-          setProduct(res?.data?.product)
-          console.log(res?.data?.product)
-        } else {
-          setError("error")
+        const product = res?.data?.product
+        if (product) {
+          setProduct(product)
         }
-        // const productItem = res?.data?.product
-        // console.log(productItem)
-        // if (productItem) {
-        //   setProduct(productItem)
-        // }
       } catch(err) {
         console.log(err)
         setError(err)
