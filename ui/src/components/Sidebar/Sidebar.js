@@ -24,7 +24,7 @@ export default function Sidebar() {
           </tr>
         </table>
       </div>
-      <button className="sidebar-btn" onClick={handleOnClick}>{isOpen ? <>&#60;</> : <>&#62;</> }</button>
+      <button className="sidebar-btn" onClick={handleOnClick}>{isOpen ? <>&#171;</> : <>&#187;</> }</button>
     </div>
   )
 }

@@ -9,17 +9,15 @@ export default function Home( {products} ) {
         {/* <div className="college-name">College of Codepath</div> */}
         <div className="intro">
           <h1>Welcome!</h1>
-          <p>
-            We have all kinds of goodies. Click on any of the items to start filling up your shopping cart. 
-            Checkout whenever you're ready.
-          </p>
+          <p>We have all kinds of goodies. Click on any of the items to start filling up your shopping cart. </p>
+          <p>Checkout whenever you're ready.</p>
         </div>
       </div>
 
       <div id="about">
         <h1>About</h1>
         <div className="about">
-          <div className="text">
+          <div className="about-text">
             <p>The codepath student store offers great products at great prices from a great team and for a great cause.</p>
             <p>We've searched far and wide for items that perk the interests of even the most eccentric students and decided to offer them all here in one place.</p>
             <p>All proceeds go towards bringing high quality CS education to college students around the country.</p>

@@ -25,6 +25,8 @@ export default function ProductDetail() {
     fetchProductById()
   }, [productId])
 
+  product.price = parseFloat(product.price).toFixed(2)
+
   return (  
     <div className="ProductDetail">
        <div className="productdetail-info">

@@ -36,3 +36,6 @@ li span {
   align-items: center;
   justify-content: center;
 }
+.about-text {
+  margin: 40px;
+}
