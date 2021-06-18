@@ -26,9 +26,9 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-<img src="./ui/src/components/imgs/ui.gif" alt="">
-<img src="" alt="">
-<img src="" alt="">
+<img src="./ui/src/components/imgs/ui.gif" alt="UI GIF">
+<img src="./ui/src/components/imgs/create order:product.gif" alt="Creat Order / Create Product">
+<img src="./ui/src/components/imgs/get:post store.gif" alt="Get store / Get Product">
 
 
 ### Reflection
