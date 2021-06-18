@@ -1,0 +1,21 @@
+.Sidebar {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  background: #583d34;
+}
+
+.open {
+  width: 300px;
+}
+.close {
+  display: none;
+  width: 50px;
+}
+.sidebar-btn {
+  font-size: 20px;
+  font-weight: 800px;
+  background: transparent;
+  border: none;
+}

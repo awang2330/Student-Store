@@ -31,8 +31,8 @@ export default function App() {
     <div className="App">
       <div></div>
       <BrowserRouter>
-        <Navbar />
         <Sidebar />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home products={products}/>}></Route>
           <Route path="/store/:productId" element={<ProductDetail/>}/>
