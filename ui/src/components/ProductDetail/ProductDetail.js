@@ -27,6 +27,13 @@ export default function ProductDetail() {
 
   product.price = parseFloat(product.price).toFixed(2)
 
+  const handleIncrement = () => {
+
+  }
+
+  const handleDecrement = () => {
+
+  }
   return (  
     <div className="ProductDetail">
        <div className="productdetail-info">
@@ -34,6 +41,10 @@ export default function ProductDetail() {
           <img src={product.image} alt={product.name}/>
         </div>
         <div className="product-details">
+          <div className="addtocart-btns">
+            <button onClick={handleIncrement}>–</button>
+            <button onClick={handleDecrement}>+</button>
+          </div>
           <div className="productdetail-category">{product.category}</div>
           <div className="productdetail-name">{product.name}</div>
           <div className="productdetail-price">${product.price}</div>

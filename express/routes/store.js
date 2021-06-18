@@ -13,7 +13,7 @@ router.get("/", async(req, res, next) => {
   }
 })
 
-// fetch single product
+/** Fetch single product */ 
 router.get("/:productId", async (req, res, next) => {
   try {
     const productId = req.params.productId
@@ -44,7 +44,7 @@ router.post("/", async(req, res, next) => {
   try {
     const userInfo = req.body.userInfo
     const cart = req.body.cart
-    const puchaseReceipt = await Store.returnPurchaseReceipt(userInfo, cart)
+    const purchaseReceipt = await Store.returnPurchaseReceipt(userInfo, cart)
     res.status(200).json(purchaseReceipt)
   } catch(err) {
     next(err)
