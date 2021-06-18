@@ -55,5 +55,37 @@
       "price": 15.33
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "name": "Ann",
+      "email": "@codepath.org",
+      "total": "4.31",
+      "receipt": {
+        "userinfo": {
+          "name": "Ann",
+          "email": "@codepath.org"
+        }
+      },
+      "productRpws": [
+        {
+          "id": 1,
+          "name": "Rice Krispies",
+          "category": "food",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/RKTsquares.jpg",
+          "source": "https://en.wikipedia.org/wiki/Rice_Krispies_Treats",
+          "description": "Delicious corn-based rice grains melted together with marshmallows into a square-like shape.",
+          "price": 0.99
+        },
+        {
+          "id": 5,
+          "name": "Aloe",
+          "category": "plant",
+          "image": "https://i.pinimg.com/736x/2c/3f/ba/2c3fba12ac4df75473be02503292b27d.jpg",
+          "source": "https://www.succulentsandsunshine.com/succulent-genus/aloe/",
+          "description": "Aloes are most commonly known due to the medicinal properties and popularity of Aloe vera. However, this group of succulents is diverse in size and texture. You'll find colorful hybrids and massive varieties that can live 100 years or more.",
+          "price": 2.33
+        }
+      ]
+    }
+  ]
 }

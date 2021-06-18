@@ -20,10 +20,12 @@ class Store {
     const products = await Store.getStoreInventory()
     var orderProducts = []
     var totalCost = 0
+    // Loop through entries of the object array
     for (const [key, value] of Object.entries(cart)) {
       products.forEach((item, index) => {
         if (item.name == key) {
           orderProducts.push(item)
+          // multiply the price by the quantity
           totalCost += (item.price * value)
         } else {
           if (index == products.length) {
