@@ -44,6 +44,15 @@
       "source": "https://www.succulentsandsunshine.com/succulent-genus/aloe/",
       "description": "Aloes are most commonly known due to the medicinal properties and popularity of Aloe vera. However, this group of succulents is diverse in size and texture. You'll find colorful hybrids and massive varieties that can live 100 years or more.",
       "price": 2.33
+    },
+    {
+      "id": 6,
+      "name": "Sushi",
+      "category": "food",
+      "image": "https://images.japancentre.com/recipes/pics/18/main/makisushi.jpg?1557308201",
+      "source": "https://www.japancentre.com/en/recipes/18-maki-sushi-rolls",
+      "description": "Sushi is a traditional Japanese dish of prepared vinegared rice, usually with some sugar and salt, accompanying a variety of ingredients, such as seafood, often raw, and vegetables. ",
+      "price": 15.33
     }
   ]
 }

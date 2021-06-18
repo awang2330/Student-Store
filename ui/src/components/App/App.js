@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import Navbar from '../Navbar/Navbar'
 import Home from '../Home/Home'
-import StoreProducts from '../StoreProducts/StoreProducts'
+import Sidebar from '../Sidebar/Sidebar'
 import ProductDetail from '../ProductDetail/ProductDetail'
 import './App.css'
 
@@ -32,6 +32,7 @@ export default function App() {
       <div></div>
       <BrowserRouter>
         <Navbar />
+        <Sidebar />
         <Routes>
           <Route path="/" element={<Home products={products}/>}></Route>
           <Route path="/store/:productId" element={<ProductDetail/>}/>
