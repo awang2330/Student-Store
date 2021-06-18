@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 import './Sidebar.css'
 
 export default function Sidebar( { cart = [], open = false } ) {
   console.log(cart)
+  console.log("hi")
   const [isOpen, setIsOpen] = useState(open)
+  const [products, setProducts] = useState([])
   const handleOnClick = () => {
     if (isOpen) { 
       setIsOpen(false) 
@@ -12,6 +15,24 @@ export default function Sidebar( { cart = [], open = false } ) {
     }
   }
 
+  useEffect(() => {
+    const getProducts = async => {
+      try {
+        cart.forEach(async (item) => {
+          const res = await axios.get(`http://localhost:3001/store/${item.id}`)
+          const product = res?.data?.product
+          if (product) {
+            setProducts(products => [...products, product])
+          }
+        })
+      } catch(err) {
+        console.log(err)
+      }
+    }
+    getProducts()
+  }, [cart])
+
+  console.log(products)
   return (
     <div className="Sidebar">
       <div className={isOpen ? "open" : "close"}>

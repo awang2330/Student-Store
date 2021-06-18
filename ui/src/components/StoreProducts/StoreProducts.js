@@ -5,31 +5,32 @@ import { useState, useEffect } from 'react'
 import Sidebar from '../Sidebar/Sidebar'
 
 export default function StoreProducts( {products} ) {
-  var cart = []
+  const [cart, setCart] = useState([])
 
-  useEffect(() => {
-    <Sidebar cart={cart}/>
-  }, [cart])
+  // useEffect(() => {
+  //   <Sidebar cart={cart}/>
+  // }, [cart])
   const handleIncrement = (event) => {
-    const itemName = event.target.name
+    const itemId = event.target.name
     if (cart.length === 0) {
-      const name = `${itemName}`
+      const id = `${itemId}`
       const quantity = parseInt(1)
-      cart.push({name, quantity})
+      setCart([...cart, {id, quantity}])
     } else {
        cart.forEach((item, index) => {
-        if (item.name === itemName) {
+        if (item.id === itemId) {
           item.quantity += parseInt(1)
         }
         else {
           if (index === cart.length - 1) {
-            const name = `${itemName}`
+            const id = `${itemId}`
             const quantity = parseInt(1)
-            cart.push({name, quantity})
+            setCart([...cart, {id, quantity}])
           }
         }
       })
     }
+    <Sidebar cart={cart}/>
     console.log(cart)
   }
 
@@ -39,6 +40,8 @@ export default function StoreProducts( {products} ) {
 
   return (
     <div className="StoreProducts">
+
+      <Sidebar cart={cart}/>
       {products.map((item) => (
           <div className="product-info product-hover" key={item.id}>
             <Link to={`/store/${item.id}`} key={item.id}>
@@ -48,8 +51,8 @@ export default function StoreProducts( {products} ) {
             </Link>
             <div className="product-details">
               <div className="addtocart-btns">
-                <button name={item.name} onClick={handleDecrement}>–</button>
-                <button name={item.name} onClick={handleIncrement}>+</button>
+                <button name={item.id} onClick={handleDecrement}>–</button>
+                <button name={item.id} onClick={handleIncrement}>+</button>
               </div>
               <div className="product-category">{item.category}</div>
               <div className="product-name">{item.name}</div>
