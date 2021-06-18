@@ -3,10 +3,11 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
-
+.StoreProducts > div {
+  margin: 20px;
+}
 .StoreProducts a {
   text-decoration: none;
-  margin: 10px;
 }
 .product-info {
   width: 300px;
@@ -16,6 +17,7 @@
   color: #fff;
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 3px 3px 5px 0.5px rgba(0, 122, 121, 0.7);
 }
 .product-hover:hover {
   transform: translateY(-10px);
@@ -40,5 +42,20 @@
   font-size: 20px;
 }
 .product-price {
+  font-size: 18px;
+}
+.addtocart-btns {
+  text-align: right;
+  margin: 10px 0;
+}
 
+.addtocart-btns button {
+  cursor: pointer;
+  background: #fff;
+  border: 0.5px solid #000;
+  border-radius: none;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  width: 30px;
 }
