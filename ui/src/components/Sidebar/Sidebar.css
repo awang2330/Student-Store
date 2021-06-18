@@ -4,6 +4,18 @@
   flex-direction: row;
   height: 100%;
   background: #583d34;
+  padding: 10px;
+}
+.sidebar-title {
+  font-size: 30px;
+}
+table {
+  background: #9e8d77;
+  border-radius: 10px;
+  padding: 10px;
+}
+tr {
+  background: #517f83;
 }
 
 .open {

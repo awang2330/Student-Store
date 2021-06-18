@@ -14,7 +14,7 @@ export default function Sidebar() {
   return (
     <div className="Sidebar">
       <div className={isOpen ? "open" : "close"}>
-        <div>Shopping Cart</div>
+        <div className="sidebar-title">Shopping Cart</div>
         <table>
           <tr>
             <th>Name</th>
