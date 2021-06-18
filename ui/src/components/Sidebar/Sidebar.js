@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import './Sidebar.css'
 
-export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false)
+export default function Sidebar( { cart = [], open = false } ) {
+  console.log(cart)
+  const [isOpen, setIsOpen] = useState(open)
   const handleOnClick = () => {
     if (isOpen) { 
       setIsOpen(false) 

@@ -1,24 +1,40 @@
 import './StoreProducts.css'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+import Sidebar from '../Sidebar/Sidebar'
 
 export default function StoreProducts( {products} ) {
-  const cart = []
+  var cart = []
+
+  useEffect(() => {
+    <Sidebar cart={cart}/>
+  }, [cart])
   const handleIncrement = (event) => {
-    const id = event.target.name
-    console.log(cart[id])
-    if (cart[id]) {
-      cart[id] += 1
+    const itemName = event.target.name
+    if (cart.length === 0) {
+      const name = `${itemName}`
+      const quantity = parseInt(1)
+      cart.push({name, quantity})
     } else {
-      cart.push((id,1))
-      
+       cart.forEach((item, index) => {
+        if (item.name === itemName) {
+          item.quantity += parseInt(1)
+        }
+        else {
+          if (index === cart.length - 1) {
+            const name = `${itemName}`
+            const quantity = parseInt(1)
+            cart.push({name, quantity})
+          }
+        }
+      })
     }
     console.log(cart)
-    
   }
 
-  const handleDecrement = () => {
-    
+  const handleDecrement = (event) => {
+    <Sidebar increment={false} id={event.target.name}/>
   }
 
   return (
@@ -32,8 +48,8 @@ export default function StoreProducts( {products} ) {
             </Link>
             <div className="product-details">
               <div className="addtocart-btns">
-                <button name={item.id} onClick={handleDecrement}>–</button>
-                <button name={item.id} onClick={handleIncrement}>+</button>
+                <button name={item.name} onClick={handleDecrement}>–</button>
+                <button name={item.name} onClick={handleIncrement}>+</button>
               </div>
               <div className="product-category">{item.category}</div>
               <div className="product-name">{item.name}</div>

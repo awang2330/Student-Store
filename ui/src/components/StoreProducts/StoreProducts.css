@@ -4,7 +4,7 @@
   flex-wrap: wrap;
 }
 .StoreProducts > div {
-  margin: 20px;
+  margin: 20px 0;
 }
 .StoreProducts a {
   text-decoration: none;
@@ -59,3 +59,4 @@
   font-weight: 600;
   width: 30px;
 }
+
