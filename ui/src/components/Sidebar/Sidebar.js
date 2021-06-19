@@ -29,26 +29,6 @@ export default function Sidebar( { cart = [], open = false } ) {
     }
   }
 
-  // useEffect(() => {
-  //   const getProducts = async => {
-  //     try {
-  //       cart.forEach(async (item, index) => {
-  //         console.log(item)
-  //         const res = await axios.get(`http://localhost:3001/store/${item.id}`)
-  //         const product = res?.data?.product
-  //         const quantity = item.quantity
-  //         console.log(quantity)
-  //         if (product) {
-  //           setProducts([...products, {quantity, product} ])
-  //         }
-  //       })
-  //     } catch(err) {
-  //       console.log(err)
-  //     }
-  //   }
-  //   getProducts()
-  // },[cartItems])
-
   console.log(products)
   return (
     <div className="Sidebar">
