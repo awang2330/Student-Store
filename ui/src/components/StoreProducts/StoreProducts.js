@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 import Sidebar from '../Sidebar/Sidebar'
 
-export default function StoreProducts( {products} ) {
+export default function StoreProducts( { products, handleCartCallback} ) {
   const [cart, setCart] = useState([])
 
   // useEffect(() => {
@@ -12,26 +12,7 @@ export default function StoreProducts( {products} ) {
   // }, [cart])
   const handleIncrement = (event) => {
     const itemId = event.target.name
-    if (cart.length === 0) {
-      const id = `${itemId}`
-      const quantity = parseInt(1)
-      setCart([...cart, {id, quantity}])
-    } else {
-       cart.forEach((item, index) => {
-        if (item.id === itemId) {
-          item.quantity += parseInt(1)
-        }
-        else {
-          if (index === cart.length - 1) {
-            const id = `${itemId}`
-            const quantity = parseInt(1)
-            setCart([...cart, {id, quantity}])
-          }
-        }
-      })
-    }
-    <Sidebar cart={cart}/>
-    console.log(cart)
+    handleCartCallback(itemId)
   }
 
   const handleDecrement = (event) => {
@@ -40,8 +21,6 @@ export default function StoreProducts( {products} ) {
 
   return (
     <div className="StoreProducts">
-
-      <Sidebar cart={cart}/>
       {products.map((item) => (
           <div className="product-info product-hover" key={item.id}>
             <Link to={`/store/${item.id}`} key={item.id}>

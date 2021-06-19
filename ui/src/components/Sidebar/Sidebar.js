@@ -4,7 +4,7 @@ import './Sidebar.css'
 
 export default function Sidebar( { cart = [], open = false } ) {
   console.log(cart)
-  console.log("hi")
+  const [cartItems, setCart] = useState(cart)
   const [isOpen, setIsOpen] = useState(open)
   const [products, setProducts] = useState([])
   const handleOnClick = () => {
@@ -13,24 +13,41 @@ export default function Sidebar( { cart = [], open = false } ) {
     } else {
       setIsOpen(true)
     }
+    try {
+      cart.forEach(async (item, index) => {
+        console.log(item)
+        const res = await axios.get(`http://localhost:3001/store/${item.id}`)
+        const product = res?.data?.product
+        const quantity = item.quantity
+        console.log(quantity)
+        if (product) {
+          setProducts([...products, {quantity, product} ])
+        }
+      })
+    } catch(err) {
+      console.log(err)
+    }
   }
 
-  useEffect(() => {
-    const getProducts = async => {
-      try {
-        cart.forEach(async (item) => {
-          const res = await axios.get(`http://localhost:3001/store/${item.id}`)
-          const product = res?.data?.product
-          if (product) {
-            setProducts(products => [...products, product])
-          }
-        })
-      } catch(err) {
-        console.log(err)
-      }
-    }
-    getProducts()
-  }, [cart])
+  // useEffect(() => {
+  //   const getProducts = async => {
+  //     try {
+  //       cart.forEach(async (item, index) => {
+  //         console.log(item)
+  //         const res = await axios.get(`http://localhost:3001/store/${item.id}`)
+  //         const product = res?.data?.product
+  //         const quantity = item.quantity
+  //         console.log(quantity)
+  //         if (product) {
+  //           setProducts([...products, {quantity, product} ])
+  //         }
+  //       })
+  //     } catch(err) {
+  //       console.log(err)
+  //     }
+  //   }
+  //   getProducts()
+  // },[cartItems])
 
   console.log(products)
   return (
@@ -45,6 +62,16 @@ export default function Sidebar( { cart = [], open = false } ) {
               <th>Unit Price</th>
               <th>Cost</th>
             </tr>
+            {products.map(item => (
+              // console.log(item);
+              // console.log(item.product.name);
+              <tr key={item.product.id}>
+                <th>{item.product.name}</th>
+                <th>{item.quantity}</th>
+                <th>{item.product.price}</th>
+                <th>{item.product.price * item.quantity}</th>
+            </tr>
+            ))}
           </tbody>
         </table>
       </div>

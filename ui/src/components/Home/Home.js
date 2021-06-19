@@ -2,7 +2,7 @@ import './Home.css'
 import StoreProducts from '../StoreProducts/StoreProducts'
 import codepath from '../imgs/codepath.svg'
 
-export default function Home( {products} ) {
+export default function Home( { products, handleCartCallback } ) {
   return (
     <div id="home" className="Home">
       <div className="shop-intro">
@@ -30,7 +30,7 @@ export default function Home( {products} ) {
 
       <div id="store">
         <h1>Store</h1>
-        <StoreProducts products={products}/>
+        <StoreProducts products={products} handleCartCallback={handleCartCallback}/>
       </div>
       
       <div id="contact">
