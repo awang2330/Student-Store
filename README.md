@@ -39,6 +39,7 @@ Get store / Get Product / Post Errors
 <img src="./ui/src/components/imgs/get:post store.gif" alt="Get store / Get Product / Post Errors">
 
 Add to cart
+
 <img src="./ui/src/components/imgs/addtocart.gif" alt="Add to cart">
 
 ### Reflection
