@@ -27,6 +27,7 @@ export default function Sidebar( { cart = [], open = false } ) {
     // }
   }
 
+  var totalCost = 0
   // console.log(products)
   return (
     <div className="Sidebar">
@@ -46,7 +47,9 @@ export default function Sidebar( { cart = [], open = false } ) {
                 <th>{item.quantity}</th>
                 <th>{item.orderProduct.price}</th>
                 <th>{item.orderProduct.price * item.quantity}</th>
+                <span className="hidden">{totalCost += (item.orderProduct.price * item.quantity)}</span>
               </tr>
+              
               // <tr>
               //   <th>{item[1].name}</th>
               //   <th>{item[0]}</th>
@@ -56,6 +59,7 @@ export default function Sidebar( { cart = [], open = false } ) {
             ))}
           </tbody>
         </table>
+        <div>Total Cost: {parseFloat(totalCost).toFixed(2)}</div>
       </div>
       <button className="sidebar-btn" onClick={handleOnClick}>{isOpen ? <>&#171;</> : <>&#187;</> }</button>
     </div>

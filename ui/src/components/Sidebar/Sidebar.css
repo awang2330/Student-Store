@@ -24,7 +24,7 @@ th {
 }
 
 .open {
-  width: 300px;
+  width: 400px;
 }
 .close {
   display: none;
@@ -36,4 +36,8 @@ th {
   background: transparent;
   border: none;
   color: #fff;
+}
+
+.hidden {
+  display: none;
 }
