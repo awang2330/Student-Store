@@ -12,6 +12,8 @@ export default function App() {
   const [products, setProducts] = useState([])
   const [error, setError] = useState()
   const [cart, setCart] = useState([])
+  const [orderProducts, setOrderProducts] = useState([])
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -29,6 +31,7 @@ export default function App() {
   }, [])
 
   const handleCartCallback = (newOrderId) => {
+    setIsOpen(true)
     if (cart.length === 0) {
       const id = `${newOrderId}`
       const quantity = parseInt(1)
@@ -48,17 +51,32 @@ export default function App() {
         }
       }
     }
-    console.log("app", cart)
+    try {
+      console.log(cart)
+      setOrderProducts([])
+      cart.forEach(async (item, index) => {
+        const res = await axios.get(`http://localhost:3001/store/${item.id}`)
+        const orderProduct = res?.data?.product
+        const quantity = item.quantity
+        console.log(quantity)
+        if (orderProduct) {
+          setOrderProducts(orderProducts => [...orderProducts, {quantity, orderProduct}])
+        }
+      })
+    } catch(err) {
+      console.log(err)
+    }
   }
+  console.log(orderProducts)
 
   return (
     <div className="App">
       <div></div>
       <BrowserRouter>
-        <Sidebar cart={cart}/>
+        <Sidebar cart={orderProducts} open={isOpen}/>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home products={products} handleCartCallback={handleCartCallback}/>}></Route>
+          <Route path="/" element={<Home products={products} handleCartCallback={handleCartCallback}/>}/>
           <Route path="/store/:productId" element={<ProductDetail/>}/>
         </Routes>
       </BrowserRouter>

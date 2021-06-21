@@ -7,9 +7,6 @@ import Sidebar from '../Sidebar/Sidebar'
 export default function StoreProducts( { products, handleCartCallback} ) {
   const [cart, setCart] = useState([])
 
-  // useEffect(() => {
-  //   <Sidebar cart={cart}/>
-  // }, [cart])
   const handleIncrement = (event) => {
     const itemId = event.target.name
     handleCartCallback(itemId)
