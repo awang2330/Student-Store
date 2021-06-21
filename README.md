@@ -17,7 +17,7 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
 
 - [ ] Deploy your website with Heroku & Surge. 
 - [x] An endpoint should exist for creating orders and saving them to a JSON file. Each order should contain the email of the person placing the order, the items associated with the order, and the quantity of each item purchased.
-- [-] There should be a `Sidebar` component that appears on every page and has two states - `open` and `closed`. When the sidebar is opened, it should display a shopping cart of all the products the user currently has in their cart. It should also calculate and display the total amount in dollars for the checked-out items. When it's closed, the sidebar should be much thinner and not display its internal content.
+- [x] There should be a `Sidebar` component that appears on every page and has two states - `open` and `closed`. When the sidebar is opened, it should display a shopping cart of all the products the user currently has in their cart. It should also calculate and display the total amount in dollars for the checked-out items. When it's closed, the sidebar should be much thinner and not display its internal content.
 - [ ] A checkout form should be available that allows the user to enter their email and send their order to the API.
 - [x] Create an endpoint for fetching all orders in the database, and an endpoint for serving an individual order based on its id.
 - [x] Create an endpoint that serves only a single product based on the product's id
@@ -38,6 +38,8 @@ Get store / Get Product / Post Errors
 
 <img src="./ui/src/components/imgs/get:post store.gif" alt="Get store / Get Product / Post Errors">
 
+Add to cart
+<img src="./ui/src/components/imgs/addtocart.gif" alt="Add to cart">
 
 ### Reflection
 
