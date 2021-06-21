@@ -52,13 +52,11 @@ export default function App() {
       }
     }
     try {
-      console.log(cart)
       setOrderProducts([])
       cart.forEach(async (item, index) => {
         const res = await axios.get(`http://localhost:3001/store/${item.id}`)
         const orderProduct = res?.data?.product
         const quantity = item.quantity
-        console.log(quantity)
         if (orderProduct) {
           setOrderProducts(orderProducts => [...orderProducts, {quantity, orderProduct}])
         }
@@ -67,7 +65,6 @@ export default function App() {
       console.log(err)
     }
   }
-  console.log(orderProducts)
 
   return (
     <div className="App">

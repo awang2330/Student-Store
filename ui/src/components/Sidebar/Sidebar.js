@@ -2,33 +2,18 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import './Sidebar.css'
 
-export default function Sidebar( { cart = [], open = false } ) {
-  // console.log(cart)
+export default function Sidebar( { cart = [], open } ) {
+  console.log(open)
   const [isOpen, setIsOpen] = useState(open)
-  const [products, setProducts] = useState([])
   const handleOnClick = () => {
     if (isOpen) { 
       setIsOpen(false) 
     } else {
       setIsOpen(true)
     }
-    // try {
-    //   cart.forEach(async (item, index) => {
-    //     const res = await axios.get(`http://localhost:3001/store/${item.id}`)
-    //     const product = res?.data?.product
-    //     const quantity = item.quantity
-    //     console.log(quantity)
-    //     if (product) {
-    //       setProducts([...products, {quantity, product} ])
-    //     }
-    //   })
-    // } catch(err) {
-    //   console.log(err)
-    // }
   }
 
   var totalCost = 0
-  // console.log(products)
   return (
     <div className="Sidebar">
       <div className={isOpen ? "open" : "close"}>
@@ -42,20 +27,13 @@ export default function Sidebar( { cart = [], open = false } ) {
               <th>Cost</th>
             </tr>
             {cart.map(item => (
-              <tr>
+              <tr key={item.orderProduct.id}>
                 <th>{item.orderProduct.name}</th>
                 <th>{item.quantity}</th>
                 <th>{item.orderProduct.price}</th>
                 <th>{item.orderProduct.price * item.quantity}</th>
-                <span className="hidden">{totalCost += (item.orderProduct.price * item.quantity)}</span>
+                <th className="hidden">{totalCost += (item.orderProduct.price * item.quantity)}</th>
               </tr>
-              
-              // <tr>
-              //   <th>{item[1].name}</th>
-              //   <th>{item[0]}</th>
-              //   <th>{item[1].price}</th>
-              //   <th>{item[1].price * item[0]}</th>
-              // </tr>
             ))}
           </tbody>
         </table>
